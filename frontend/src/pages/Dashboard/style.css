@@ -1,0 +1,48 @@
+ul.spot-list {
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 9px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+ul.spot-list li{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+ul.spot-list li header {
+    width: 270px;
+    height: 350px;
+    background-size: cover;
+    border-radius: 4px;
+    align-content: center;
+}
+
+ul.spot-list li strong{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+ul.spot-list li span{
+    font-size: 15px;
+    color: #999;
+}
+
+.title {
+    width: 100%;
+    background-color: #dd2e4c;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
