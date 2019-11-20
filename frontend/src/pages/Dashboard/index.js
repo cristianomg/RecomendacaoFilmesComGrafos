@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import api from '../../services/api'
+import { trackPromise } from 'react-promise-tracker' 
 import './style.css'
+import LoadingIndicator from '../../componentes/LoadingIndicator'
 
 export default function Dashboard(){
+    
     const [filmes, setFilmes] = useState([])
     const [recomendacao, setRecomendacao] = useState([])
     useEffect(() => { 
@@ -14,17 +17,20 @@ export default function Dashboard(){
             setRecomendacao(filmesRecomendados.data);
             setFilmes(filmesAssistidos.data);
         }
-        loadSpots();
+        trackPromise(
+            loadSpots()
+        );
     }, []);
     return (
         <>
             <div className="title">
                 <strong>Filmes Assistidos</strong>
             </div>
+                <LoadingIndicator/>
             <ul className="spot-list">
                 {filmes.map( filme => (
                     <li key={filmes.movieId}>
-                        <header style= {{ backgroundImage: `url(${filme.posterPath})` }}/>
+                        <header style= {{ backgroundImage: `url(${filme.posterPath})`}}/>
                         <strong>{filme.title}</strong>
                         <span>{filme.genres}</span>
                         <span>Avaliação: {filme.avaliacao}</span>
@@ -35,6 +41,7 @@ export default function Dashboard(){
             <div className="title">
                 <strong>Filmes Recomendados</strong>
             </div>
+            <LoadingIndicator/>
             <ul className="spot-list">
                 {recomendacao.map( filme => (
                     <li key={filmes.movieId}>
