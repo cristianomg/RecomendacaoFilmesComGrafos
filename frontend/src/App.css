@@ -90,6 +90,7 @@ body {
  .footer {
    font: 12px;
    color: #fff;
-   margin: 10px;
+   margin: 15px;
+   padding: 20px;
    font-weight: bolder;
  }

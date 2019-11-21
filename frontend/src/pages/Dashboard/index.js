@@ -30,10 +30,10 @@ export default function Dashboard(){
             <ul className="spot-list">
                 {filmes.map( filme => (
                     <li key={filmes.movieId}>
-                        <header style= {{ backgroundImage: `url(${filme.posterPath})`}}/>
+                        <header className="header" style= {{ backgroundImage: `url(${filme.posterPath})`} }/>
                         <strong>{filme.title}</strong>
+                        <span className="avaliacao"> Avaliação: {filme.avaliacao}</span>
                         <span>{filme.genres}</span>
-                        <span>Avaliação: {filme.avaliacao}</span>
                     </li>
                 ))}
             </ul>

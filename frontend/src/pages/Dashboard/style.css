@@ -5,7 +5,7 @@ ul.spot-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     margin-bottom:30px;
-    margin-left: 20px;
+    position: relative;
 }
 
 ul.spot-list li{
@@ -21,7 +21,15 @@ ul.spot-list li header {
     height: 350px;
     background-repeat: no-repeat;
     background-size: contain;
-    border-radius: 8px; 
+    border-radius:   8px; 
+}
+
+.avaliacao {
+    display: none; 
+}
+
+.spot-list li:hover .avaliacao{
+    display: flex;
 }
 
 ul.spot-list li strong{
