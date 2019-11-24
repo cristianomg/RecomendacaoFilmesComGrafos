@@ -9,11 +9,10 @@ def euclidianDistance(sample1, sample2, length):
     return math.sqrt(distance)
 
 
-users = leituraJson.retornarUsers()
+users = leituraJson.getUsers()
 def verificarAdjacentesForUser(idUser):
     adjacentesUsers = {}
     valor = []
-    menor = 0
     media = 0
     for userAnalisado in users:
         if userAnalisado != idUser:
@@ -22,8 +21,8 @@ def verificarAdjacentesForUser(idUser):
                 calculoEuclidiano = euclidianDistance(RatingsX, RatingsY, len(RatingsX))
                 valor.append(calculoEuclidiano)
     if len(valor)> 0:
-        menor = min(valor)
         media = sum(valor) / len(valor)
+        print(media)
     for userAnalisado in users:
         if userAnalisado != idUser:
             RatingsX, RatingsY = verificarFilmeVotadosPelosDoisUsuarios(idUser, userAnalisado)
@@ -36,8 +35,8 @@ def verificarAdjacentesForUser(idUser):
 def verificarFilmeVotadosPelosDoisUsuarios(idUser, userAnalisado):
     RatingsX = []
     RatingsY = []
-    filmesX = leituraJson.retornarFilmesUser(idUser)
-    filmesY = leituraJson.retornarFilmesUser(userAnalisado)
+    filmesX = leituraJson.getFilmesByUserId(idUser)
+    filmesY = leituraJson.getFilmesByUserId(userAnalisado)
     for idFilmeX in filmesX.keys():
         for idFilmeY in filmesY.keys():
             if idFilmeX == idFilmeY:
@@ -51,7 +50,7 @@ def criarArquivoJsonGrafo():
     for userId in users:
         grafo['vertices'].append(userId)
         Adjacentes = verificarAdjacentesForUser(userId)
-        #print(Adjacentes)
+        print(Adjacentes)
         for adjacente, peso in Adjacentes.items():
             grafo['arestas'].append([userId, adjacente])
             grafo['pesosAresta'].append(peso)

@@ -1,5 +1,4 @@
 import csv 
-import pandas as pd
 import json
 users = {}
 
@@ -23,5 +22,5 @@ with open('ratings.csv', newline = '' ) as csvfile:
                 users[x].update({row['movieId']: row['rating']})
 
      
-with open ('data.json', 'w') as outfile:
+with open ('users.json', 'w') as outfile:
     json.dump(users, outfile)

@@ -1,21 +1,24 @@
 import json
 
 def lerArquivoUser():
-    with open('./users.json') as json_file:
+    with open('users.json') as json_file:
         return json.load(json_file)
     
 def lerArquivoMovies():
-    with open('./movies.json') as json_file2:
+    with open('movies.json') as json_file2:
         return json.load(json_file2)
 
 def lerArquivoMoviesPosterPath():
     try:
-        with open('./moviesPosterPath.json') as json_file3:
+        with open('moviesPosterPath.json') as json_file3:
             return json.load(json_file3)
     except FileNotFoundError:
         with open ('moviesPosterPath.json', 'w') as outfile:
             json.dump({}, outfile)
             return {}
+
+def getUsers():
+    return lerArquivoUser()
 
 def getFilmesByUserId(userId):
     users = lerArquivoUser()
@@ -38,5 +41,3 @@ def setPosterPathById(tmdbId, path):
     posterPath.update({tmdbId: path})
     with open ('moviesPosterPath.json', 'w') as outfile:
         json.dump(posterPath, outfile)
-
-
