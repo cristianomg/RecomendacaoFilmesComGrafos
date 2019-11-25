@@ -34,7 +34,7 @@ Com o algoritmo de recomendação feito, foi criada uma aplicação em flask que
 
 * /recomendacao/id : Esse terceiro endpoint retorna os 16 filmes recomendados pelo algoritmo de dijkstra Modificado, para o usuário informado.
 
-A api está hospedada no pythonAnywhere e pode ser acessada pelo link: <http://cmacedog.pythonanywhere.com> utilizando os endpoints informados.
+A api está hospedada no pythonAnywhere e pode ser acessada pelo link: <https://cmacedog.pythonanywhere.com> utilizando os endpoints informados.
 
 Para executar localmente instale as dependencias contidas no arquivo requirements.txt, após instaladas execute o arquivo app.py
 
